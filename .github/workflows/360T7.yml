@@ -113,8 +113,8 @@ jobs:
         rm -rf *.manifest
         rm -rf feeds.buildinfo
         rm -rf sha256sums
-        mv *sysupgrade.bin OpenWrt-360T7-${{ env.FIRMWARE_VERSION }}-sysupgrade.bin || echo 没有找到 *sysupgrade.bin 文件
-        mv *factory.bin OpenWrt-360T7-${{ env.FIRMWARE_VERSION }}-factory.bin || echo 没有找到 *factory.bin 文件
+        mv *sysupgrade.bin 360T7-${{ env.FIRMWARE_VERSION }}-sysupgrade.bin || echo 没有找到 *sysupgrade.bin 文件
+        mv *factory.bin 360T7-${{ env.FIRMWARE_VERSION }}-factory.bin || echo 没有找到 *factory.bin 文件
         echo -e "$(sha256sum *)\n" > sha256sums
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
