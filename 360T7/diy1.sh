@@ -12,5 +12,5 @@
 
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-
+echo -e "\nsrc-git extraipk https://github.com/zijieKwok/jaykwok-ipk" >> feeds.conf.default
 # Add feed sources
