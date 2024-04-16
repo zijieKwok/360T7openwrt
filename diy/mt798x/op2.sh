@@ -61,7 +61,7 @@ sed -i "s/MT7981_AX3000_5G/OpenWrt_5G/g" package/mtk/drivers/wifi-profile/files/
 
 ##New WiFi
 sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i "s/ImmortalWrt-5G/OpenWrt_-5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 
 ##更新FQ
