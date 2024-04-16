@@ -16,7 +16,7 @@ on:
   #   - cron: '0 0 1 * *'
 
 env:
-  REPO_URL: https://github.com/zijieKwok/immortalwrt-mt798x
+  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: 360T7/feeds.conf.default
   CONFIG_FILE: 360T7/.config
@@ -48,7 +48,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        echo "FIRMWARE_VERSION=$(date +"%Y%m%d%M")" >> $GITHUB_ENV
+        echo "FIRMWARE_VERSION=$(date +"%y%m%d")" >> $GITHUB_ENV
         echo "START_DATE=$(date +'%Y年%m月%d日 %H点%M分')" >> $GITHUB_ENV
 
     - name: PushPlus 通知
@@ -132,9 +132,8 @@ jobs:
       run: |
         release_tag="360T7-${{ env.FIRMWARE_VERSION }}"
         echo "编译时间：${{ env.START_DATE }}" >> release.txt
-        echo "默认网关：192.168.3.1" >> release.txt
+        echo "默认网关：192.168.5.1" >> release.txt
         echo 包含插件：ua2f $(grep "CONFIG_PACKAGE_luci-app-\(.*\)=y" openwrt/.config | sed "s/CONFIG_PACKAGE_luci-app-\(.*\)=y/\1/g" | grep -v "_\|arpbind\|autoreboot\|firewall\|mtk\|opkg") >> release.txt
-        
         echo "release_tag=$release_tag" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
