@@ -23,6 +23,12 @@ sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files
 # rm -rf feeds/luci/applications/luci-app-passwall/*
 # cp -af feeds/extraipk/patch/wall-luci/luci-app-passwall/*  feeds/luci/applications/luci-app-passwall/
 
+##MosDNS
+rm -rf feeds/packages/net/mosdns/*
+cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
+rm -rf feeds/packages/net/v2ray-geodata/*
+cp -af feeds/extraipk/op-mosdns/v2ray-geodata/* feeds/packages/net/v2ray-geodata/
+
 rm -rf feeds/luci/applications/luci-app-openclash/*
 cp -af feeds/extraipk/patch/wall-luci/luci-app-openclash/*  feeds/luci/applications/luci-app-openclash/
 
