@@ -49,7 +49,16 @@ jobs:
         cp -f ../diy/mt798x/op1.sh ./
         chmod +x ./op1.sh && ./op1.sh
 
-    - name: Update & Install feeds
+    - name: 加载自定义配置
+      run: |
+        [ -e 360T7/files ] && mv 360T7/files openwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x $DIY_P2_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P2_SH
+
+	
+	- name: Update & Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
