@@ -22,7 +22,7 @@ sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/f
 sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 ##更新FQ
 rm -rf feeds/packages/net/tailscale/*
-cp -af feeds/openwrt-24.10/net/tailscale/*  feeds/packages/net/tailscale/
+cp -af feeds/extraipk/tailscale/*  feeds/packages/net/tailscale/
 
 ##MosDNS
 rm -rf feeds/packages/net/mosdns/*
