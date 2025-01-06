@@ -16,12 +16,13 @@ sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" package/base-files/files/
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='OpenWrt $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
 cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 ##New WiFi
 sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 ##更新FQ
-# rm -rf feeds/luci/applications/luci-app-passwall/*
-# cp -af feeds/extraipk/patch/wall-luci/luci-app-passwall/*  feeds/luci/applications/luci-app-passwall/
+rm -rf feeds/packages/net/tailscale/*
+cp -af feeds/openwrt-24.10/net/tailscale/*  feeds/packages/net/tailscale/
 
 ##MosDNS
 rm -rf feeds/packages/net/mosdns/*
