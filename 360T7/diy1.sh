@@ -13,4 +13,5 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 echo -e "\nsrc-git extraipk https://github.com/zijieKwok/jaykwok-ipk" >> feeds.conf.default
+echo -e "\nsrc-git openwrt-24.10 https://github.com/openwrt/packages.git;openwrt-24.10" >> feeds.conf.default
 # Add feed sources
