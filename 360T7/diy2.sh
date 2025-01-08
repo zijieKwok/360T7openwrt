@@ -27,8 +27,8 @@ sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files
 # cp -af feeds/extraipk/tailscale/*  feeds/packages/net/tailscale/
 
 ##MosDNS
-rm -rf feeds/packages/net/mosdns/*
-cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
+# rm -rf feeds/packages/net/mosdns/*
+# cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
 rm -rf feeds/packages/net/v2ray-geodata/*
 cp -af feeds/extraipk/op-mosdns/v2ray-geodata/* feeds/packages/net/v2ray-geodata/
 
