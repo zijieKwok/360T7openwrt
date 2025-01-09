@@ -50,7 +50,7 @@ cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 
 sed -i "2iuci set istore.istore.channel='openwrt_jaykwok'" package/emortal/default-settings/files/99-default-settings
 sed -i "3iuci commit istore" package/emortal/default-settings/files/99-default-settings
-
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##WiFi
 sed -i "s/MT7986_AX6000_2.4G/OpenWrt_2.4G/g" package/mtk/drivers/wifi-profile/files/mt7986/mt7986-ax6000.dbdc.b0.dat
@@ -65,13 +65,13 @@ sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files
 
 
 ##更新FQ
-rm -rf feeds/luci/applications/luci-app-passwall/*
-cp -af feeds/extraipk/patch/wall-luci/luci-app-passwall/*  feeds/luci/applications/luci-app-passwall/
+# rm -rf feeds/luci/applications/luci-app-passwall/*
+# cp -af feeds/extraipk/patch/wall-luci/luci-app-passwall/*  feeds/luci/applications/luci-app-passwall/
 
 rm -rf feeds/luci/applications/luci-app-openclash/*
 cp -af feeds/extraipk/patch/wall-luci/luci-app-openclash/*  feeds/luci/applications/luci-app-openclash/
-
-
+rm -rf feeds/packages/net/tailscale/*
+cp -af feeds/extraipk/tailscale/*  feeds/packages/net/tailscale/
 ##MosDNS
 rm -rf feeds/packages/net/mosdns/*
 cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
