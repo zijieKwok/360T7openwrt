@@ -20,11 +20,11 @@ cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 # git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 ##New WiFi
-sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+# sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+# sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 ##更新FQ
-# rm -rf feeds/packages/net/tailscale/*
-# cp -af feeds/extraipk/tailscale/*  feeds/packages/net/tailscale/
+rm -rf feeds/packages/net/tailscale/*
+cp -af feeds/extraipk/tailscale/*  feeds/packages/net/tailscale/
 
 ##MosDNS
 rm -rf feeds/packages/net/mosdns/*
