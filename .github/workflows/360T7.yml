@@ -105,7 +105,6 @@ jobs:
       run: |
         # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间
         cd openwrt/bin/targets/*/*
-        rm -rf packages
         rm -rf version.buildinfo
         rm -rf profiles.json
         rm -rf *rootfs*
