@@ -29,8 +29,8 @@ cp -af feeds/extraipk/patch/diy/bg1.jpg feeds/third/luci-theme-argon/htdocs/luci
 # sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 # sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 ##更新tailscale
-rm -rf feeds/packages/net/tailscale/*
-cp -af feeds/extraipk/tailscale/tailscale/*  feeds/packages/net/tailscale/
+# rm -rf feeds/packages/net/tailscale/*
+# cp -af feeds/extraipk/tailscale/tailscale/*  feeds/packages/net/tailscale/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##MosDNS
