@@ -26,18 +26,18 @@ cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 rm -rf feeds/third/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -af feeds/extraipk/patch/diy/bg1.jpg feeds/third/luci-theme-argon/htdocs/luci-static/argon/img/
 ##New WiFi
-# sed -i "s/ImmortalWrt-2.4G/OpenWrt_2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-# sed -i "s/ImmortalWrt-5G/OpenWrt_5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i "s/MT7981_AX3000_2.4G/OpenWrt-2.4G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
+sed -i "s/MT7981_AX3000_5G/OpenWrt-5G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b1.dat
 ##更新tailscale
 # rm -rf feeds/packages/net/tailscale/*
 # cp -af feeds/extraipk/tailscale/tailscale/*  feeds/packages/net/tailscale/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##MosDNS
-# rm -rf feeds/packages/net/mosdns/*
-# cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
-# rm -rf feeds/packages/net/v2ray-geodata/*
-# cp -af feeds/extraipk/op-mosdns/v2ray-geodata/* feeds/packages/net/v2ray-geodata/
+rm -rf feeds/packages/net/mosdns/*
+cp -af feeds/extraipk/op-mosdns/mosdns/* feeds/packages/net/mosdns/
+rm -rf feeds/packages/net/v2ray-geodata/*
+cp -af feeds/extraipk/op-mosdns/v2ray-geodata/* feeds/packages/net/v2ray-geodata/
 
 rm -rf feeds/luci/applications/luci-app-openclash/*
 cp -af feeds/extraipk/patch/wall-luci/luci-app-openclash/*  feeds/luci/applications/luci-app-openclash/
