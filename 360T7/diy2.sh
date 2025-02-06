@@ -33,7 +33,7 @@ sed -i "s/MT7981_AX3000_5G/OpenWrt-5G/g" package/mtk/drivers/wifi-profile/files/
 rm -rf feeds/packages/net/tailscale/*
 cp -af feeds/extraipk/tailscale/tailscale/*  feeds/packages/net/tailscale/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
-rm -rf package/feeds/extraipk/daed
+rm -rf package/feeds/extraipk/op-daed
 
 ##MosDNS
 # rm -rf feeds/packages/net/mosdns/*
