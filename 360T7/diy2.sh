@@ -24,8 +24,8 @@ cp -af feeds/extraipk/diy/index.js feeds/extraipk/nas-packages-luci/luci/luci-ap
 # rm -rf feeds/packages/lang/golang
 # git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 # git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
-rm -rf feeds/third/luci-theme-argon/*
-cp -af feeds/extraipk/theme/luci-theme-argon/* feeds/third/luci-theme-argon/
+rm -rf feeds/luci/themes/luci-theme-argon/*
+cp -af feeds/extraipk/theme/luci-theme-argon/* feeds/luci/themes/luci-theme-argon/
 ##New WiFi
 sed -i "s/MT7981_AX3000_2.4G/OpenWrt-2.4G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
 sed -i "s/MT7981_AX3000_5G/OpenWrt-5G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b1.dat
