@@ -30,8 +30,8 @@ cp -af feeds/extraipk/theme/luci-theme-argon/* feeds/luci/themes/luci-theme-argo
 sed -i "s/MT7981_AX3000_2.4G/OpenWrt-2.4G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
 sed -i "s/MT7981_AX3000_5G/OpenWrt-5G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b1.dat
 ##更新tailscale
-rm -rf feeds/packages/net/tailscale
-cp -af feeds/extraipk/tailscale/tailscale  feeds/packages/net/
+# rm -rf feeds/packages/net/tailscale
+# cp -af feeds/extraipk/tailscale/tailscale  feeds/packages/net/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 rm -rf package/feeds/extraipk/op-daed
 
