@@ -1,0 +1,79 @@
+name: mediatek_filogic_tplink_tl-xdr6086
+
+on:
+  workflow_dispatch:
+  
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FIRMWARE_TAG: Mediatek_filogic_hanwckf_mt7986
+  
+jobs:
+  Build:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      continue-on-error: true
+      uses: actions/checkout@main
+      with:
+        path: OpenWrt
+
+    - name: Setup variables
+      run: |
+        sudo timedatectl set-timezone 'Asia/Shanghai'
+        git config --global user.name 'actions'
+        git config --global user.email 'action@github.com'        
+        echo build_dir="/builder" >> "$GITHUB_ENV"
+        
+    - name: Free disk space
+      uses: oppen321/actions@free-disk
+      with:
+        build-mount-path: /builder
+        
+    - name: Build System Setup
+      uses: oppen321/actions@openwrt-build-setup 
+
+    - name: Compile OpenWrt
+      working-directory: /builder
+      id: compile
+      continue-on-error: true
+      run: |    
+        curl -sS -O https://github.com/zijieKwok/360T7openwrt/blob/main/configs/mediatek_filogic.sh && chmod +x hanwckf_mt7986.sh && ./hanwckf_mt7986.sh
+        echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+
+    - name: Prepare Firmware Files
+      working-directory: /builder
+      run: |
+        mkdir -p rom
+        cp -a openwrt/bin/targets/mediatek/mt7986/*.bin rom/
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: hanwckf_mt798x
+        path: ${{ env.build_dir }}/rom/*
+
+    - name: Create release
+      continue-on-error: true
+      uses: ncipollo/release-action@v1
+      with:
+        name: R${{ env.DATE }} for ${{ env.FIRMWARE_TAG }}
+        allowUpdates: true
+        tag: ${{ env.FIRMWARE_TAG }}
+        commit: master
+        replacesArtifacts: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: ${{ env.build_dir }}/rom/*
+        body: |
+          **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**
+          ### 📒 固件信息
+          - 💻 平台架构: Mediatek_filogic_tplink_tl-xdr6086
+          - ⚽ 固件源码: ${{ env.REPO_URL }}
+          - 💝 源码分支: ${{ env.REPO_BRANCH }}
+          - 🚀 内核版本: 6.6
+          - 🌐 默认地址: 192.168.2.1
+          - 🔑 默认密码: password
