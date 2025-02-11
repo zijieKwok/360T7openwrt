@@ -1,8 +1,8 @@
-name: IPQ807X-OpenWrt
+name: tplink_tl-xdr6086-OpenWrt
 
 on:
-  workflow_dispatch:
-  schedule:
+#  workflow_dispatch:
+#  schedule:
     - cron: 8 18 * * 5
 
 env:
@@ -13,7 +13,6 @@ env:
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: mediatek_filogic
   TZ: Asia/Shanghai
 
 jobs:
