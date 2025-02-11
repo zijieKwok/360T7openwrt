@@ -21,9 +21,9 @@ sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-
 cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 rm -rf feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
 cp -af feeds/extraipk/diy/index.js feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
-rm -rf feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
 # git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
+# git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
 rm -rf feeds/luci/themes/luci-theme-argon/*
 cp -af feeds/extraipk/theme/luci-theme-argon/* feeds/luci/themes/luci-theme-argon/
 ##New WiFi
