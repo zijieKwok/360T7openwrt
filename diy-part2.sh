@@ -22,9 +22,10 @@ sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES 
 sed -i 's/192\.168\.[0-9]*\.[0-9]*/192.168.1.1/g' package/base-files/files/bin/config_generate
 sed -i 's/192\.168\.[0-9]*\.[0-9]*/192.168.1.1/g' package/base-files/luci2/bin/config_generate
 
-##更新默认密码为：password
-#sed -i '/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./$1$5mjCdAB1$Uk1sNbwoqfHxUmzRIeuZK1/d' package/lean/default-settings/files/zzz-default-settings
-
+# tailscale
+rm -rf feeds/packages/net/tailscale
+cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 
 
