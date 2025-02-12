@@ -1,4 +1,4 @@
-name: x_t7
+name: Lede-360T7
 
 on: 
   repository_dispatch:
