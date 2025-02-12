@@ -14,6 +14,6 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo 'src-git extraipk https://github.com/Jaykwok2999/istoreos-ipk' >>feeds.conf.default
+echo 'src-git istoreos_ipk https://github.com/Jaykwok2999/istoreos-ipk' >>feeds.conf.default
 echo 'src-git store https://github.com/linkease/istore' >>feeds.conf.default
 
