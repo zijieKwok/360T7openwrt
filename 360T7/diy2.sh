@@ -10,14 +10,27 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
-# sed -i "s/https://www.istoreos.com/'/hostname=''/g" feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
-# sed -i "s/iStoreOS\u5B98\u7F51'/hostname='JayKwok'/g" feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
-sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
-sed -i "s/hostname='ImmortalWrt'/hostname='OpenWrt'/g" include/version.mk
-sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='OpenWrt $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
+#补充汉化
+#echo -e "\nmsgid \"Control\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+#echo -e "msgstr \"控制\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+
+#echo -e "\nmsgid \"NAS\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+#echo -e "msgstr \"网络存储\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+
+#echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+#echo -e "msgstr \"魔法网络\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+
+echo -e "\nmsgid \"Temperature\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+echo -e "msgstr \"温度\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+              
+##配置ip等
+sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3| ; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
+sed -i 's/192\.168\.[0-9]*\.[0-9]*/192.168.5.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192\.168\.[0-9]*\.[0-9]*/192.168.5.1/g' package/base-files/luci2/bin/config_generate
+
+##清除默认密码password
+sed -i '/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./$1$5mjCdAB1$Uk1sNbwoqfHxUmzRIeuZK1/d' package/lean/default-settings/files/zzz-default-settings
+
 cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 rm -rf feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/index.js
 cp -af feeds/extraipk/diy/index.js feeds/extraipk/nas-packages-luci/luci/luci-app-quickstart/htdocs/luci-static/quickstart/
@@ -26,9 +39,7 @@ cp -af feeds/extraipk/diy/index.js feeds/extraipk/nas-packages-luci/luci/luci-ap
 # git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
 rm -rf feeds/luci/themes/luci-theme-argon/*
 cp -af feeds/extraipk/theme/luci-theme-argon/* feeds/luci/themes/luci-theme-argon/
-##New WiFi
-sed -i "s/MT7981_AX3000_2.4G/OpenWrt-2.4G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b0.dat
-sed -i "s/MT7981_AX3000_5G/OpenWrt-5G/g" package/mtk/drivers/wifi-profile/files/mt7981/mt7981.dbdc.b1.dat
+
 ##更新tailscale
 # rm -rf feeds/packages/net/tailscale
 # cp -af feeds/extraipk/tailscale/tailscale  feeds/packages/net/
