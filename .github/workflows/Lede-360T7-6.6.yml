@@ -81,7 +81,8 @@ jobs:
         sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.6/g" target/linux/mediatek/Makefile
         sed -i "s/KERNEL_PATCHVER=*.*/KERNEL_PATCHVER=6.6/g" target/linux/mediatek/Makefile        
 
-        sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='TL-XDR6086-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings           
+        sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='OpenWrt $(date +"%y%m%d")'/g" package/lean/default-settings/files/zzz-default-settings           
+        sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g"  package/lean/default-settings/files/zzz-default-settings        
       
     - name: Load custom configuration
       run: |
