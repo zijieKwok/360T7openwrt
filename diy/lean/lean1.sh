@@ -1,6 +1,6 @@
 #!/bin/bash
 #=================================================
-# DaoDao's script
+# JayKwok's script
 #=================================================
 ##添加自己的插件库
 rm -rf ./package/lean/k3screenctrl
