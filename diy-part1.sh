@@ -15,6 +15,5 @@
 
 # Add a feed source
 echo 'src-git extraipk https://github.com/Jaykwok2999/istoreos-ipk" >> feeds.conf.default
-echo 'src-git store https://github.com/linkease/istore;main' >>feeds.conf.default
-
+echo 'src-git store https://github.com/linkease/istore' >>feeds.conf.default
 
