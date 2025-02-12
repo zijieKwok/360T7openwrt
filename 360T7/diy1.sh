@@ -13,4 +13,4 @@
 # Uncomment a feed source
 echo -e "\nsrc-git extraipk https://github.com/Jaykwok2999/istoreos-ipk" >> feeds.conf.default
 # Add feed sources
-echo 'src-git store https://github.com/linkease/istore;main' >>feeds.conf.default
+echo 'src-git store https://github.com/linkease/istore' >>feeds.conf.default
