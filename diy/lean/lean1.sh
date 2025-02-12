@@ -6,5 +6,5 @@
 rm -rf ./package/lean/k3screenctrl
 rm -rf ./package/lean/autocore
                
-sed -i "1isrc-git extraipk https://github.com/xiangfeidexiaohuo/extra-ipk\n" feeds.conf.default
+sed -i "1isrc-git extraipk https://github.com/Jaykwok2999/istoreos-ipk\n" feeds.conf.default
 
