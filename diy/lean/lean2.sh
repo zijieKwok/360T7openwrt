@@ -54,6 +54,7 @@ sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-set
 
 # tailscale
 # rm -rf feeds/packages/net/tailscale
+rm -rf feeds/istoreos_ipk/tailscale/tailscale
 # cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
