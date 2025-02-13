@@ -52,6 +52,8 @@ cp -af feeds/istoreos_ipk/patch/diy/banner  package/base-files/files/etc/banner
 sed -i "2iuci set istore.istore.channel='OpenWrt_JayKwok'" package/lean/default-settings/files/zzz-default-settings
 sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-settings
 
+rm -rf feeds/istoreos_ipk/xray-core
+
 # tailscale
 # rm -rf feeds/packages/net/tailscale
 rm -rf feeds/istoreos_ipk/tailscale/tailscale
