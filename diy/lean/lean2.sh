@@ -36,17 +36,9 @@ cp -af feeds/istoreos_ipk/patch/brcmfmac4366c-pcie.bin ./package/lean/k3-brcmfma
 
 
 ##取消bootstrap为默认主题
-rm -rf ./feeds/istoreos_ipk/theme/luci-theme-argon
-rm -rf ./feeds/istoreos_ipk/theme/luci-app-argon-config
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-design
 rm -rf ./feeds/luci/themes/luci-theme-argon-mod
-
-# rm -rf ./package/feeds/istoreos_ipk/luci-theme-argon
-# rm -rf ./package/feeds/istoreos_ipk/luci-app-argon-config
-rm -rf ./package/feeds/luci/luci-theme-argon
-rm -rf ./package/feeds/luci/luci-theme-design
-rm -rf ./package/feeds/luci/luci-theme-argon-mod
 
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -61,8 +53,8 @@ sed -i "2iuci set istore.istore.channel='OpenWrt_JayKwok'" package/lean/default-
 sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-settings
 
 # tailscale
-rm -rf feeds/packages/net/tailscale
-cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
+# rm -rf feeds/packages/net/tailscale
+# cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##更改主机名
