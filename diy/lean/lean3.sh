@@ -71,6 +71,8 @@ sed -i "s/speed = <2500>;/speed = <1000>;/g" target/linux/mediatek/dts/mt7623a-*
 ##
 sed -i '/option Interface/d'  package/network/services/dropbear/files/dropbear.config
 
+sed -i '/TARGET_LDFLAGS += -lubox -lubus/i\TARGET_CFLAGS += -ffunction-sections -fdata-sections -flto' package/network/services/hostapd/Makefile
+sed -i '/TARGET_LDFLAGS += -lubox -lubus/i\TARGET_LDFLAGS += -Wl,--gc-sections -flto=jobserver -fuse-linker-plugin' package/network/services/hostapd/Makefile
 
 ## rockchip
 cp -af feeds/istoreos_ipk/patch/rockchip/*  target/linux/rockchip/armv8/base-files/
