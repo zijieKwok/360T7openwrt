@@ -34,8 +34,6 @@ sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generat
 ##取消bootstrap为默认主题
 rm -rf ./feeds/luci/istoreos_ipk/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-design
-rm -rf ./feeds/luci/themes/luci-theme-argon-mod
-
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
@@ -48,7 +46,9 @@ cp -af feeds/istoreos_ipk/patch/diy/banner  package/base-files/files/etc/banner
 sed -i "2iuci set istore.istore.channel='OpenWrt_JayKwok'" package/lean/default-settings/files/zzz-default-settings
 sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-settings
 
-rm -rf feeds/istoreos_ipk/xray-core
+rm -rf feeds/packages/net/xray-core
+cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
+# rm -rf feeds/istoreos_ipk/xray-core
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
