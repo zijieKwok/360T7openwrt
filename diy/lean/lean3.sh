@@ -55,6 +55,8 @@ rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 # rm -rf feeds/packages/net/tailscale
 rm -rf feeds/istoreos_ipk/tailscale/tailscale
 # cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
+rm -rf feeds/luci/applications/luci-app-tailscale
+cp -af feeds/istoreos_ipk/tailscale/luci-app-tailscale feeds/luci/applications/
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##更改主机名
@@ -79,5 +81,5 @@ cp -af feeds/istoreos_ipk/patch/rockchip/*  target/linux/rockchip/armv8/base-fil
 
 # golong1.23依赖
 rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-# git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
+# git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
