@@ -24,7 +24,7 @@ echo -e "msgstr \"日志\"" >> package/feeds/luci/luci-app-dnsforwarder/po/zh-cn
               
 ##配置ip等
 sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3| ; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
 ##替换K3无线驱动为69027
 # rm -rf ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
@@ -49,6 +49,7 @@ sed -i "2iuci set istore.istore.channel='OpenWrt_JayKwok'" package/lean/default-
 sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-settings
 
 rm -rf feeds/istoreos_ipk/xray-core
+rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
 # rm -rf feeds/packages/net/tailscale
