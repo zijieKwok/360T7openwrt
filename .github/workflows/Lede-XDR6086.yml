@@ -10,11 +10,11 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: configs/xdr6086.config
   DIY_SCRIPT: diy/diy-part1.sh
-  DIY_SCRIPT: diy/diy-part2.sh
+  CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: X86_64
+  FIRMWARE_TAG: mediatek_mt7981
   TZ: Asia/Shanghai
 
 jobs:
@@ -112,6 +112,7 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/diy/diy-part2.sh
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
 
     - name: Download DL Package
