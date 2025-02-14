@@ -32,7 +32,7 @@ sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generat
 
 
 ##取消bootstrap为默认主题
-rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./feeds/luci/istoreos_ipk/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-design
 rm -rf ./feeds/luci/themes/luci-theme-argon-mod
 
