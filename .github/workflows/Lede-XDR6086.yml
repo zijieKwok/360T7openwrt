@@ -1,4 +1,4 @@
-name: Builser-immortalwrt-X86_64
+name: Builser-Lede-XDR6086
 
 on:
   workflow_dispatch:
