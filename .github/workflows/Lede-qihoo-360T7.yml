@@ -20,7 +20,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: configs/ARM/lean_t7.config
+  CONFIG_FILE: configs/ARM/.config
   DIY_P1_SH: diy/lean/lean01.sh
   DIY_P2_SH: diy/lean/lean3.sh
   UPLOAD_BIN_DIR: false
