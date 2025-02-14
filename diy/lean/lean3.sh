@@ -21,7 +21,6 @@ echo -e "msgstr \"常规\"" >> package/feeds/luci/luci-app-dnsforwarder/po/zh-cn
 echo -e "\nmsgid \"LOG\"" >> package/feeds/luci/luci-app-dnsforwarder/po/zh-cn/dnsforwarder.po
 echo -e "msgstr \"日志\"" >> package/feeds/luci/luci-app-dnsforwarder/po/zh-cn/dnsforwarder.po
 
-              
 ##配置ip等
 sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3| ; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
 sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
@@ -29,7 +28,6 @@ sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generat
 ##替换K3无线驱动为69027
 # rm -rf ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 # cp -af feeds/istoreos_ipk/patch/brcmfmac4366c-pcie.bin ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
-
 
 ##取消bootstrap为默认主题
 rm -rf ./feeds/luci/istoreos_ipk/luci-theme-argon
@@ -46,6 +44,8 @@ cp -af feeds/istoreos_ipk/patch/diy/banner  package/base-files/files/etc/banner
 sed -i "2iuci set istore.istore.channel='OpenWrt_JayKwok'" package/lean/default-settings/files/zzz-default-settings
 sed -i "3iuci commit istore" package/lean/default-settings/files/zzz-default-settings
 
+rm -rf feeds/packages/lean/default-settings/files/zzz-default-settings
+cp -af feeds/istoreos_ipk/patch/diy/zzz-default-settings feeds/packages/lean/default-settings/files/
 rm -rf feeds/packages/net/xray-core
 cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
 # rm -rf feeds/istoreos_ipk/xray-core
