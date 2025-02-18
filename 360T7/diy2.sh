@@ -38,7 +38,7 @@ cp -af feeds/extraipk/patch/diy/banner  package/base-files/files/etc/banner
 # git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 # git clone https://git.kejizero.online/zhao/packages_lang_golang -b 23.x feeds/packages/lang/golang
 rm -rf feeds/luci/themes/luci-theme-argon
-cp -af feeds/extraipk/theme/luci-theme-argon feeds/luci/themes/
+# cp -af feeds/extraipk/theme/luci-theme-argon feeds/luci/themes/
 
 ##更新tailscale
 # rm -rf feeds/packages/net/tailscale
