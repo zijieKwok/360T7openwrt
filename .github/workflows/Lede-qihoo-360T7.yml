@@ -1,11 +1,11 @@
-name: x_t7
+name: 360_t7
 
 on: 
   repository_dispatch:
   workflow_dispatch:
 
 jobs:
-  x_t7:
+  360_t7:
     runs-on: ubuntu-20.04
     steps:
     - name: Clone Repository
