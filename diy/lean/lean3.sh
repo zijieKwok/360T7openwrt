@@ -30,7 +30,6 @@ sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generat
 # cp -af feeds/istoreos_ipk/patch/brcmfmac4366c-pcie.bin ./package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 
 ##取消bootstrap为默认主题
-rm -rf ./feeds/luci/istoreos_ipk/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-design
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -53,7 +52,7 @@ rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
 # rm -rf feeds/packages/net/tailscale
-rm -rf feeds/istoreos_ipk/tailscale/tailscale
+# rm -rf feeds/istoreos_ipk/tailscale/tailscale
 # cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
 # rm -rf feeds/luci/applications/luci-app-tailscale
 # cp -af feeds/istoreos_ipk/tailscale/luci-app-tailscale feeds/luci/applications/
