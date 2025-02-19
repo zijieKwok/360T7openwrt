@@ -5,7 +5,7 @@
    workflow_dispatch:
 
  jobs:
-   360_t7:
+   x_t7:
      runs-on: ubuntu-20.04
      steps:
      - name: Clone Repository
