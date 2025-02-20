@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Lede-qihoo-360t7-Core5.15
+name: Lede-qihoo-360t7-Core6.6
 
 on:
   repository_dispatch:
