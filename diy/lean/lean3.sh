@@ -54,8 +54,7 @@ cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
-# rm -rf feeds/packages/net/tailscale
-# rm -rf feeds/istoreos_ipk/tailscale/tailscale
+rm -rf feeds/istoreos_ipk/tailscale/tailscale
 # cp -af feeds/istoreos_ipk/tailscale/tailscale  feeds/packages/net/
 # rm -rf feeds/luci/applications/luci-app-tailscale
 # cp -af feeds/istoreos_ipk/tailscale/luci-app-tailscale feeds/luci/applications/
