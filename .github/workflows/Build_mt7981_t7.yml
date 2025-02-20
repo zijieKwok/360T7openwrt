@@ -41,12 +41,12 @@ jobs:
         
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
-        REPO_BRANCH: openwrt-21.02
+        REPO_URL: https://github.com/NekokeCore/immortalwrt-mt798x-24.10
+        REPO_BRANCH: openwrt-24.10
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        cp -f ../diy/mt798x/op1.sh ./
+        cp -f ../diy/op1.sh ./
         chmod +x ./op1.sh && ./op1.sh
 
     - name: Update & Install feeds
@@ -56,14 +56,14 @@ jobs:
 
         ./scripts/feeds install -a
 
-        cp -f ../diy/mt798x/op2.sh ./        
+        cp -f ../diy/op2.sh ./        
         chmod +x ./op2.sh && ./op2.sh      
 
         sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-360-T7-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
               
     - name: Configuration Customization - Build_mt7981_t7
       env:
-        CONFIG_FILE: './configs/ARM/mt798x/mt7981_t7.config'
+        CONFIG_FILE: './configs/t7.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt && make defconfig
@@ -85,7 +85,7 @@ jobs:
       run: |
         rm -rf ./ARM_Out
         mkdir -p ./ARM_Out/
-        cp -a ./openwrt/.config ./ARM_Out/ae86.config
+        cp -a ./openwrt/.config ./ARM_Out/openwrt.config
         
         getmd5()
         {
