@@ -46,7 +46,7 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        cp -f ../diy/op1.sh ./
+        cp -f ../diy/mt798x/op1.sh ./
         chmod +x ./op1.sh && ./op1.sh
 
     - name: Update & Install feeds
@@ -56,7 +56,7 @@ jobs:
 
         ./scripts/feeds install -a
 
-        cp -f ../diy/op2.sh ./        
+        cp -f ../diy/mt798x/op2.sh ./        
         chmod +x ./op2.sh && ./op2.sh      
 
         sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-360-T7-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
