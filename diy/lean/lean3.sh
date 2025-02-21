@@ -54,8 +54,8 @@ cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
-rm -rf feeds/packages/net/tailscale/*
-cp -af feeds/istoreos_ipk/tailscale/tailscale/* feeds/packages/net/tailscale/
+rm -rf feeds/istoreos_ipk/tailscale
+git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##更改主机名
