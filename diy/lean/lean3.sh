@@ -54,9 +54,9 @@ cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
 rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
-rm -rf feeds/istoreos_ipk/tailscale
-git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+# rm -rf feeds/istoreos_ipk/tailscale
+# git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+# sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 
 ##更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
