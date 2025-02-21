@@ -56,9 +56,10 @@ rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 # tailscale
 rm -rf feeds/packages/net/tailscale
 cp -af feeds/istoreos_ipk/tailscale/tailscale feeds/packages/net/
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 # rm -rf feeds/luci/applications/luci-app-tailscale
 # cp -af feeds/istoreos_ipk/tailscale/luci-app-tailscale feeds/luci/applications/
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+
 
 ##更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
