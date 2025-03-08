@@ -51,7 +51,7 @@ cp -af feeds/istoreos_ipk/patch/diy/zzz-default-settings feeds/packages/lean/def
 rm -rf feeds/packages/net/xray-core
 cp -af feeds/istoreos_ipk/xray-core feeds/packages/net/
 # rm -rf feeds/istoreos_ipk/xray-core
-rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
+# rm -rf feeds/istoreos_ipk/theme/luci-theme-argon
 
 # tailscale
 rm -rf feeds/packages/net/tailscale
